@@ -1,0 +1,51 @@
+Mallory - MA(th) ll (f)O(r) R(ub)Y
+
+Changes to Core
+
+	Complex
+		A note on Precision
+			Due to the way that computers currently work, some answers may be inaccurate. 
+				For example, from Eulers Identity, we have e^(i*pi) = -1. 
+			However, the ruby equivalent, "euler = Math::E**(Complex(0,1)*Math::PI)" produces "-1.0+1.2246063538223773e-16i", A with difference very close to, but not equal to, 0.
+			To correct for this, we attempt to control error in the following ways:
+				All complex numbers, z, now have a ".round" method which rounds z's real and imaginary components as floats. 
+					Without any parameters passed, ".round" rounds each of z's components to the nearest integer. 
+						For example, euler.round == -1
+					With parameter n, it rounds them to the nearest float with precision n. 
+						For example, euler.round(16) == -1.0+1.2246063538223773e-16i and euler.round(15) == -1.0
+					From the above example, it seems like it might be a good ideas to round complex numbers to 15 decimal places
+					By default, the ".identity" method works like the ".round" method, only with a default precision set to the Complex's class variable, @@precision, which, by default is set to 15.
+					If you wish to change the defalut precision at runtime, you may use the Class Method "Complex.Set_Precision=".
+					Also, to make things a bit simpler, for any complex number z, "+z" is equivalent to "z.identity". Thus +euler == -1 as expected
+					Throughout the source code, I will use +z where precision is needed to avoid innacuracies
+		A note on Representation
+			By default, when desplaying complex numbers, z, they are displayed in the form "(a+bi)" where a == z.real and b == z.imaginary. This is inconsistent for a few reasons:
+				The parentheses, "(" and ")", are not displayed when when other Numeric types, except for Rational, are displayed. The argument can be made that that when doign so with Rational number, it actually represents a different object.
+					For example, Rational(1.0,3), represented as "(1.0/3)", is a Rational object with numerator = 1 and denominator = 3 while, 1.0/3 represented as "0.333333...", is a Float object with numerator = 6004799503210661 and denominator = 18014398509481984
+				The same argument cannot be made for complex numbers. Thus we modify the inspect function for Complex types to not have the parentheses as default. That is z.inspect = "a+bi" rather than "(a+bi")
+				Furthermore, the "i" as mentioned above, does not have a clear meaning as the variable i is not a constant representing Complex(0,1).
+				It would then make sense to set i as a constant representing Complex(0,1), but, in the Ruby language, it is "difficult" (read: "impossible") to make string that begings with a lowercase letter a constant, thus we have to settle for I, it's uppercase equivalent.
+				So, we set Math::I = Complex(0,1), and upon loading Mallory, we set I = Math::I and we change the representation of Complex(0,1) to "I". Thus z.inspect = "a+bI".
+				However, "bI" is not correct, as it implies multipication, but this is not consistent with multiplication within ruby, so we inject the multiplication symbol "*". Thus z.inspect = "a+b*I".
+				Finally, we do a bit of finnagaling to make some of the terms go away when a or b == 0.
+					For example, Complex(0) is represented as "0" rather than "0+0*i". Complex(0,-1) is represented as "-I" rather than "0+-1*I".
+
+		A note on ordering
+			A Total Ordering (http://en.wikipedia.org/wiki/Total_ordering) cannot be defined for Complex Numbers. A proof can be found here: http://answers.yahoo.com/question/index?qid=20070419125505AAikEGT
+				However, one can define a partial ordering on the Complex numbers in a number of ways
+				By default, I have defined the complex numbers to use Lexigraphical ordering but you can change this using the Class Method "Complex.Set_Ordering=". Use :lex, :max, or :ang to change between Lexigraphical Ordering and Magnitudal Ordering respectivelly or Angular Ordering respectively
+				Also, it's of note, that while the Complex Class includes the Comparable Module (most likely inherrited from the Numeric Class), the methods >,<,>=,<=,and between?, have been removed from the class, so simply adding the <=> and including the Comparable module does not make them work. I had to re-add them each manually. I suspect they were removed because of the fact that a Total Ordering cannot be defined on Complex Numbers, as mentioned above.
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				

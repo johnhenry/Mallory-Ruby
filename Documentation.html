@@ -1,0 +1,183 @@
+<html>
+	<head>
+		<title>Mallory Documentation</title>
+	</head>
+	<body>
+		<h1>Mallory Documentation</h1>
+
+			<h2>Added Modules</h2>
+		
+		
+		
+				<h3>Calculus</h3>
+					<h4>NumDifferentiate(function:Function,point:Number,center:Number)</n4>
+					<h4>NumIntegrate(function:Function,lower:Function,upper:Number,method{:low,:mid,:upper,:trapezoid,:simpson})</h4>
+					<h4>CIntegrated(function,boundary)</h4>
+					
+					<h4>Derivative(function:String,variable:String="x")</h4>
+					<h4>AntiDerivative(function:String,variable:String="x")</h4>
+				
+				<h3>Algebra</h3>
+					<h4>NumSolve(equation:String,variable:String="x")</h4>
+					<h4>NumSolveSystem(equations:Array,variables:Array=["x"])</h4>					
+					
+					<h4>SymSolve(equation:String,variable:String="x")</h4>
+					<h4>SymSolveSystem(equations:Array,variables:Array=["x"])</h4>		
+				
+				<h3>Misc</h3>
+					<h4>Power(base,exponent,branch,branch=0)</h4>
+					<h4>Logarithm(exponent,base=Math::E,branch=0,secondaryBranch=0)</h4>
+					<h4>Tetration(first,second)</h4>
+					<h4>NTration(n=1,first,second)</h4>
+					<h4>IsNumeric?(num)</h4>
+				
+				<h3>Trigonometry</h3>
+					<h4>Sine(num:Number=0)</h4>
+					<h4>Secant(num:Number=0)</h4>					
+					<h4>Tangent(num:Number=0)</h4>
+					<h4>Cosine(num:Number=0)</h4>				
+					<h4>Cosecant(num:Number=0)</h4>
+					<h4>Cotangent(num:Number=0)</h4>
+					
+					<h4>ArcSine(num:Number=0)</h4>
+					<h4>ArcSecant(num:Number=0)</h4>					
+					<h4>ArcTangent(num:Number=0)</h4>
+					<h4>ArcCosine(num:Number=0)</h4>				
+					<h4>ArcCosecant(num:Number=0)</h4>
+					<h4>ArcCotangent(num:Number=0)</h4>																								
+				
+				<h3>HyperbolicTrigonometry</h3>
+					<h4>HyperbolicSine(num:Number=0)</h4>
+					<h4>HyperbolicSecant(num:Number=0)</h4>					
+					<h4>HyperbolicTangent(num:Number=0)</h4>
+					<h4>HyperbolicCosine(num:Number=0)</h4>				
+					<h4>HyperbolicCosecant(num:Number=0)</h4>
+					<h4>HyperbolicCotangent(num:Number=0)</h4>
+					
+					<h4>ArcHyperbolicSine(num:Number=0)</h4>
+					<h4>ArcHyperbolicSecant(num:Number=0)</h4>					
+					<h4>ArcHyperbolicTangent(num:Number=0)</h4>
+					<h4>ArcHyperbolicCosine(num:Number=0)</h4>				
+					<h4>ArcHyperbolicCosecant(num:Number=0)</h4>
+					<h4>ArcHyperbolicCotangent(num:Number=0)</h4>					
+				<h3>Logic</h3>
+					<h4>And()</h4>
+					<h4>Or()</h4>
+					<h4>Not()</h4>
+					<h4>Nand()</h4>
+					<h4>Nor()</h4>
+					<h4>Xor()</h4>					
+					
+					
+				<h3>VisualText</h3>
+					<h4>Console</h4>
+					<h4>Raphael</h4>
+					<h4>SVG</h4>
+					<h4>Canvas</h4>
+					
+				
+				
+		
+			<h2>Extended Modules</h2>
+			
+				<h3>Math</h3>
+					<h4>Constants</h4>
+						<h5>PI</h5>3.14159...
+						<h5>E</h5>2.7...
+						<h5>PHI</h5>1.5...
+						<h5>I</h5>i
+					<h4>Functions</h4>
+						<h5>is_numeric?</h5>			
+
+			<h2>Added Classes</h2>
+
+				<h3>ComplexNumber</h3>
+					
+					<h4>Operator Methods</h4>
+						<h5>+ (Operator)</h5>
+						<h5>- (Operator)</h5>
+						<h5>* (Operator)</h5>
+						<h5>/ (Operator)</h5>
+						<h5>** (Operator)</h5>
+						<h5>% (Operator)</h5>												
+						<h5>== (Operator)</h5>
+					
+					<h4>Normal Methods</h4>
+						<h5>value</h5>
+						<h5>i_value</h5>
+						<h5>negative</h5><h5>opposite</h5>
+						<h5>reciprocal</h5><h5>inverse</h5>
+						<h5>abs "absolute value"</h5><h5>mag "magnitude"</h5>
+						<h5>ang "angle"</h5><h5>arg "argument"</h5>
+						<h5>conj "conjugate"</h6>
+						
+						<h5>is_f?</h5>
+						<h5>is_i?</h5>
+						<h5>to_f</h5>
+						<h6>to_i</h6>	
+						
+						
+			<h2>Extended Classes</h2>
+		
+				<h3>Fixnum "Integer""<h3>		
+					
+					<h4>Altered Methods</h4>
+						<h5>+ (Operator)</h5>
+						<h5>- (Operator)</h5>
+						<h5>* (Operator)</h5>
+						<h5>/ (Operator)</h5>
+						<h5>** (Operator)</h5>
+						<h5>% (Operator)</h5>												
+						<h5>== (Operator)</h5>				
+					
+					<h4>New Methods</h4>
+						<h5>is_prime?:Boolean</h5>
+						<h5>is_positive?:Boolean</h5>
+						<h5>is_negative?:Boolean</h5>
+						
+						<h5>factors:Array</h5>
+						<h5>proper_factors:Array</h5>
+						<h6>prime_factorization:Hash</h6>
+											
+				
+				<h3>Float "Sudo-Real Number"</h3>
+					<h4>Altered Methods</h4>
+						<h5>+ (Operator)</h5>
+						<h5>- (Operator)</h5>
+						<h5>* (Operator)</h5>
+						<h5>/ (Operator)</h5>
+						<h5>** (Operator)</h5>
+						<h5>% (Operator)</h5>												
+						<h5>== (Operator)</h5>
+				<h3>Hash</h3>
+					
+					<h4>New Methods</h4>
+						<h5>is_permutation?</h5>
+						<h5>is_cycle?</h5>				
+				
+				<h3>Array</h3>
+					<h4>New Methods - Matrix</h4>
+						<h5>is_matrix?</h5>
+						<h5>is_square?</h5>
+						<h5>is_invertabl?</h5>
+						<h5>determinant</h5>
+						<h5>permanent</h5>
+						<h5>trace</h5>
+						<h5>diagonal():Array</h5>
+						<h5>inverse</h5>
+						<h5>invert!</h6>
+						<h5>inverse_step:Hash<h>
+						
+						
+						<p>Notes
+						SetField(:7) -> Sets Field to Z7
+						SetField(:4) -> Sets Field to Z4
+						SetField(:6) -> Sets "Field" to Z6, but gives a warning that it isn't really a fiend
+						SetField(Structure.new(:Addition=>?,:AdditiveInverse=?,:zero=>?,:Multiplication=>?,:MultiplicativeInverse=>?,:One=>?,Membership=?))	
+							
+						</p>
+						
+						
+											
+	</body>
+</html>
